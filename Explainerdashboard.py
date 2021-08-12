@@ -112,5 +112,4 @@ explainer = ClassifierExplainer(model, X_test, y_test,
                             #    descriptions = feature_descriptions,
                                labels=['Attrited_Customer', 'Existing_Customer'])
 
-dashboard = ExplainerDashboard(explainer)
-dashboard.run(host = "0.0.0.0", port = 9050, use_waitress = True)
+ExplainerDashboard(explainer, title = "Bank Churners", shap_interaction = False).run(host = "0.0.0.0", port = 9050, use_waitress = True)

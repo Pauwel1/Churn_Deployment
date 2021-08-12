@@ -1,0 +1,3 @@
+#!/Users/pauwel/Documents/GitHub/Churn_Deployment/appenv/bin/python
+from numba.pycc import main
+main()

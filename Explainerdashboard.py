@@ -113,4 +113,4 @@ explainer = ClassifierExplainer(model, X_test, y_test,
                                labels=['Attrited_Customer', 'Existing_Customer'])
 
 dashboard = ExplainerDashboard(explainer)
-dashboard.to_yaml("dashboard.yaml", explainerfile = "explainer.joblib", dump_explainer = True)
+dashboard.run(host = "0.0.0.0", port = 9050, use_waitress = True)

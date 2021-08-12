@@ -10,4 +10,4 @@ COPY . .
 
 ENTRYPOINT ["python"]
 EXPOSE 9050
-CMD ["Explainerdashboard.py", "--host = 0.0.0.0"]
+CMD ["run_dashboard.py", "--host = 0.0.0.0"]

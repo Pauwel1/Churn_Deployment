@@ -42,23 +42,23 @@ churn.loc[churn['Education_Level'] == 'Uneducated', "Education_Level"] = 0
 churn.loc[churn['Education_Level'] == 'Unknown', "Education_Level"] = churn['Education_Level'].mode()[0]
 churn["Education_Level"] = churn["Education_Level"].astype(int)
 
-churn.loc[churn['Income_Category'] == 'Less than $40K', "Income_Category"] = 30
-churn.loc[churn['Income_Category'] == '$40K - $60K', "Income_Category"] = 50
-churn.loc[churn['Income_Category'] == '$60K - $80K', "Income_Category"] = 70
-churn.loc[churn['Income_Category'] == '$80K - $120K', "Income_Category"] = 100
-churn.loc[churn['Income_Category'] == '$120K +', "Income_Category"] = 200
+churn.loc[churn['Income_Category'] == 'Less than $40K', "Income_Category"] = 1
+churn.loc[churn['Income_Category'] == '$40K - $60K', "Income_Category"] = 2
+churn.loc[churn['Income_Category'] == '$60K - $80K', "Income_Category"] = 3
+churn.loc[churn['Income_Category'] == '$80K - $120K', "Income_Category"] = 4
+churn.loc[churn['Income_Category'] == '$120K +', "Income_Category"] = 5
 churn.loc[churn['Income_Category'] == 'Unknown', "Income_Category"] = churn['Income_Category'].mode()[0]
 churn["Income_Category"] = churn["Income_Category"].astype(int)
 
-churn.loc[churn['Card_Category'] == 'Blue', "Card_Category"] = 222
-churn.loc[churn['Card_Category'] == 'Silver', "Card_Category"] = 333
-churn.loc[churn['Card_Category'] == 'Gold', "Card_Category"] = 444
-churn.loc[churn['Card_Category'] == 'Platinum', "Card_Category"] =  555
+churn.loc[churn['Card_Category'] == 'Blue', "Card_Category"] = 1
+churn.loc[churn['Card_Category'] == 'Silver', "Card_Category"] = 2
+churn.loc[churn['Card_Category'] == 'Gold', "Card_Category"] = 3
+churn.loc[churn['Card_Category'] == 'Platinum', "Card_Category"] =  4
 churn["Card_Category"] = churn["Card_Category"].astype(int)
 
-churn.loc[churn["Marital_Status"] == "Married", "Marital_Status"] = 120
-churn.loc[churn["Marital_Status"] == "Single", "Marital_Status"] = 140
-churn.loc[churn["Marital_Status"] == "Divorced", "Marital_Status"] = 160
+churn.loc[churn["Marital_Status"] == "Married", "Marital_Status"] = 1
+churn.loc[churn["Marital_Status"] == "Single", "Marital_Status"] = 2
+churn.loc[churn["Marital_Status"] == "Divorced", "Marital_Status"] = 3
 churn.loc[churn["Marital_Status"] == "Unknown", "Marital_Status"] = churn["Marital_Status"].mode()[0]
 churn["Marital_Status"] = churn["Marital_Status"].astype(int)
 
@@ -112,5 +112,5 @@ explainer = ClassifierExplainer(model, X_test, y_test,
                             #    descriptions = feature_descriptions,
                                labels=['Attrited_Customer', 'Existing_Customer'])
 
-db = ExplainerDashboard(explainer, title = "Bank Churners", shap_interaction = False)
+db = ExplainerDashboard(explainer, title = "Bank Churners")
 db.to_yaml("dashboard.yaml", explainerfile = "explainer.joblib", dump_explainer = True)

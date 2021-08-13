@@ -3,8 +3,7 @@
 FROM python:3.9
 WORKDIR /Churn_Deployment
 
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install explainerdashboard
 
 COPY . .
 

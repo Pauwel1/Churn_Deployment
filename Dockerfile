@@ -3,10 +3,10 @@
 FROM python:3.9
 WORKDIR /Churn_Deployment
 
-RUN pip install explainerdashboard
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
 
-COPY explainerFromJoblib.py ./
+COPY . .
 
 ENTRYPOINT ["python"]
-EXPOSE 9050
-CMD ["explainerFromJoblib.py", "--host = 0.0.0.0"]
+CMD ["run_dashboard.py", "--host = 0.0.0.0"]

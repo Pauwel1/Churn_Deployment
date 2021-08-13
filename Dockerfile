@@ -7,5 +7,4 @@ RUN pip install explainerdashboard
 
 COPY . .
 
-ENTRYPOINT ["python"]
-CMD ["run_dashboard.py", "--host = 0.0.0.0"]
+CMD explainerdashboard run explainer.joblib --port 9050

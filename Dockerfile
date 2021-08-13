@@ -15,4 +15,4 @@ COPY . .
 RUN python Explainerdashboard.py
 
 EXPOSE 9050
-CMD ["python", "./run_dashboard.py"]
+CMD explainerdashboard run explainer.joblib --port 9050

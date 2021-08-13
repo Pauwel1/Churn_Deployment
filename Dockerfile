@@ -5,8 +5,8 @@ WORKDIR /Churn_Deployment
 
 RUN pip install explainerdashboard
 
-COPY explainer.joblib ./
+COPY explainerFromJoblib.py ./
 
 ENTRYPOINT ["python"]
 EXPOSE 9050
-CMD ["explainer.joblib", "--host = 0.0.0.0"]
+CMD ["explainerFromJoblib.py", "--host = 0.0.0.0"]
